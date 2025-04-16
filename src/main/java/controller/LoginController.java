@@ -93,7 +93,7 @@ public class LoginController {
 		model.addAttribute("images", list_banner);
 		model.addAttribute("notices", list_notice);
 
-		// vo가 null인지 확인
+		// PatientVO가 null인지 확인
 		if (vo_user == null || vo_user.getPat_id() == null) {
 			//회원 정보가 존재하지 않는 경우(로그인 안 한 경우)
 			return Common.main.VIEW_PATH + "MainPage_User.jsp";

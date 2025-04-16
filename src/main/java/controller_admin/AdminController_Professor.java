@@ -108,9 +108,8 @@ public class AdminController_Professor {
 	//관리자-의료진 추가 페이지로 이동
 	@RequestMapping("admin_professor_insert_form.do")
 	public String admin_professor_insert_form(Model model) {
-
+		//진료과목록 불러오기
 		List<DepartmentVO> list = professorDao.deptList();
-
 		model.addAttribute("list", list);
 
 		return Common.Admin.VIEW_PATH + "professor/Admin_Professor_Insert_Form.jsp";
@@ -156,7 +155,8 @@ public class AdminController_Professor {
 
 		//vo의 정보를 가지고 의료진 정보 추가
 		int res1 = professorDao.professor_insert(pro_vo);
-
+		
+		//의료진 이미지가 성공적으로 추가된 경우
 		if(res1 > 0) {
 			// 이름으로 pro_idx 조회
 			ProfessorVO new_pro_vo = professorDao.professor_nameView(pro_vo.getPro_name());
